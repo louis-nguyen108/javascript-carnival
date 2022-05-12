@@ -12,6 +12,21 @@ console.log('Whack-a-Mole!')
 // --- A WAY TO REFERENCE THE CELL
 let moleSpots = document.getElementsByTagName('td')
 let spotsArr = Array.from(moleSpots)
+
+function newMole() {
+  let moleImgTag = document.createElement('img')
+  moleImgTag.classList.add = 'mole'
+  moleImgTag.src = 'mole.PNG'
+  moleImgTag.style = 'height: 200px; width: 200px;'
+  newSpot = spotsArr[getRandomNum(0, 24)]
+  newSpot.appendChild(moleImgTag)
+}
+
+let startButton = document.getElementById('start-button')
+startButton.onclick = function () {
+  newMole()
+}
+
 // console.log(spotsArr)
 
 // code to bind onclick
@@ -36,14 +51,6 @@ function moleWhacked(e) {
 }
 
 // --- SELECT CELL AND ATTACH IMG
-function newMole() {
-  let moleImgTag = document.createElement('img')
-  moleImgTag.classList.add = 'mole'
-  moleImgTag.src = 'mole.PNG'
-  moleImgTag.style = 'height: 200px; width: 200px;'
-  newSpot = spotsArr[getRandomNum(0, 24)]
-  newSpot.appendChild(moleImgTag)
-}
 
 // --- RANDOM FUNCTION/LOGIC
 // --- reference min = 0
