@@ -23,9 +23,7 @@ function newMole() {
 }
 
 let startButton = document.getElementById('start-button')
-startButton.onclick = function () {
-  newMole()
-}
+startButton.onclick = newMole
 
 // console.log(spotsArr)
 
