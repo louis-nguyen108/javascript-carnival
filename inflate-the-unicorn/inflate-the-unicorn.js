@@ -4,7 +4,7 @@
 
 console.log('Inflate The Unicorn!')
 
-let unicorns = document.getElementsByClassName('unicorns')
+let unicorns = document.getElementsByClassName('inflate-an-image')
 // console.log(unicorns)
 
 // bind onclick to all img tag using for loop
