@@ -33,6 +33,11 @@ td {
     margin: 5px;
 }
 
+#start-button {
+  display: block;
+  margin: 50px auto;
+}
+
 .dress-a-parent {
   display: block;
   margin-left: auto;
