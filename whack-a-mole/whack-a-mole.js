@@ -13,27 +13,25 @@ console.log('Whack-a-Mole!')
 let moleSpots = document.getElementsByTagName('td')
 let spotsArr = Array.from(moleSpots)
 
+// mole image
+let moleImage = document.createElement('img')
+moleImage.src = 'mole.PNG'
+moleImage.style = 'height: 200px; width: 200px;'
+
+// function to add new mole
 function newMole() {
-  let moleImgTag = document.createElement('img')
-  moleImgTag.classList.add = 'mole'
-  moleImgTag.src = 'mole.PNG'
-  moleImgTag.style = 'height: 200px; width: 200px;'
-  newSpot = spotsArr[getRandomNum(0, 24)]
-  newSpot.appendChild(moleImgTag)
+  let newSpot = spotsArr[getRandomNum(0, 24)]
+  newSpot.appendChild(moleImage)
 }
 
+moleImage.onclick = moleWhacked
+
+// bind start button to create new mole
 let startButton = document.getElementById('start-button')
 startButton.onclick = newMole
 
-// console.log(spotsArr)
-
-// code to bind onclick
-// for (i = 0; i < spotsArr.length; i++) {
-//   spotsArr[i].onclick = moleWhacked
-// }
-
 // FUNCTION TO CALL WHEN CLICKED
-function moleWhacked(e) {
+function moleWhacked() {
   // code to target the click
   // if there is mole,
   /* then remove mole (image) from target cell
@@ -41,16 +39,10 @@ function moleWhacked(e) {
      then display mole (image) on the randomly selected cell */
   // if there is no mole (empty cell)
   /* then nothing happens until a cell with mole has been clicked */
-  // console.log('WHACKED!')
-  // let spot = e.target
-  // const moleImgTag = document.createElement('img')
-  // const spot = document.createElement('td')
-  // spot.appendChild(moleImgTag)
+  newMole()
 }
 
-// --- SELECT CELL AND ATTACH IMG
-
-// --- RANDOM FUNCTION/LOGIC
+// --- RANDOM FUNCTION/LOGIC ---
 // --- reference min = 0
 // --- reference max = 24
 function getRandomNum(min, max) {
@@ -64,12 +56,13 @@ function getRandomNum(min, max) {
   return randomNum
 }
 
-// --- REFERENCE mole image  tag
-// <img src="mole.png" style="height: 200px auto; width: 200px auto"></img>
-
 //  ----- STRETCH IDEAS FOR LATER -----
 
-// Add a start button to start game which once clicked, timer will start
+// FROM MYSELF
+// Add further code to button so that once button is clicked, timer will start
+// Add logic so that when there is a mole already, start button will not add new mole
+
+// FROM DEV ACADEMY
 
 // Add a counter to the page that counts how many times you have whacked the mole!
 
@@ -77,4 +70,4 @@ function getRandomNum(min, max) {
 
 // Add a high score field that stores your highest score and replaces it if a new, higher score is achieved. *Note: for now, this score will be reset when you refresh your browser. For it to last, you would need some form of database, which we cover later during bootcamp.
 
-// Rewrite your random index function so it can't give you the same index twice in a row.
+// (DONE) Rewrite your random index function so it can't give you the same index twice in a row.
