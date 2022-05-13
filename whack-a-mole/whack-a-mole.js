@@ -18,6 +18,10 @@ let moleImage = document.createElement('img')
 moleImage.src = 'mole.PNG'
 moleImage.style = 'height: 200px; width: 200px;'
 
+// whack audio
+let whackSound = new Audio()
+whackSound.src = 'whack-audio.wav'
+
 // function to add new mole
 function newMole() {
   let newSpot = spotsArr[getRandomNum(0, 24)]
@@ -39,6 +43,7 @@ function moleWhacked() {
      then display mole (image) on the randomly selected cell */
   // if there is no mole (empty cell)
   /* then nothing happens until a cell with mole has been clicked */
+  whackSound.play()
   newMole()
 }
 
