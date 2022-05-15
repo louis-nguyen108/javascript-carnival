@@ -4,54 +4,107 @@
 
 console.log('Dress The Clown!')
 
-//
 let head = document.getElementById('head')
-// head.src = './images/head0.png'
-
 let body = document.getElementById('body')
-// body.src = './images/body0.png'
-
 let shoes = document.getElementById('shoes')
-// shoes.src = './images/shoes0.png'
 
-let indexNum = 3
+let bodyPartIndex = 0 // 0 is head
 
-// head.onclick = changeHead
-// body.onclick = changeBody
-// shoes.onclick = changeShoes
+let headIndex = 3 //  Head image on HTML page starts at 3
+let bodyIndex = 4 // Body image on HTML page starts at 4
+let shoesIndex = 4 // Shoes image on HTML page starts at 4
 
+// --- BIND & CHECK KEY PRESS ---
 document.onkeydown = checkKey
 
 function checkKey(e) {
   e = e || window.event
 
-  if (e.key === 'ArrowRight') {
-    changeHeadRight()
+  if (e.key === 'ArrowUp') {
+    changeUp()
+  } else if (e.key === 'ArrowDown') {
+    changeDown()
+  } else if (e.key === 'ArrowRight') {
+    changeRight()
   } else if (e.key === 'ArrowLeft') {
-    changeHeadLeft()
-  } else if (e.key === 'ArrowUp') {
-  } else if (e.key === 'Arrow Down') {
+    changeLeft()
   }
 }
 
-function changeHeadRight() {
-  if (indexNum < 5) {
-    indexNum++
-  } else if (indexNum === 5) {
-    indexNum = 0
+// --- CHANGE BODY PART ---
+function changeUp() {
+  if (bodyPartIndex > 0) {
+    bodyPartIndex--
+  } else if (bodyPartIndex === 0) {
+    bodyPartIndex = 2
   }
-
-  head.src = './images/head' + indexNum + '.png'
 }
 
-function changeHeadLeft() {
-  if (indexNum > 0) {
-    indexNum--
-  } else if (indexNum === 0) {
-    indexNum = 5
+function changeDown() {
+  if (bodyPartIndex < 2) {
+    bodyPartIndex++
+  } else if (bodyPartIndex === 2) {
+    bodyPartIndex = 0
+  }
+}
+
+// --- CHANGE CLOTHING ---
+function changeRight() {
+  if (bodyPartIndex === 0) {
+    if (headIndex < 5) {
+      headIndex++
+    } else if (headIndex === 5) {
+      headIndex = 0
+    }
+    head.src = './images/head' + headIndex + '.png'
   }
 
-  head.src = './images/head' + indexNum + '.png'
+  if (bodyPartIndex === 1) {
+    if (bodyIndex < 5) {
+      bodyIndex++
+    } else if (bodyIndex === 5) {
+      bodyIndex = 0
+    }
+    body.src = './images/body' + bodyIndex + '.png'
+  }
+
+  if (bodyPartIndex === 2) {
+    if (shoesIndex < 5) {
+      shoesIndex++
+    } else if (shoesIndex === 5) {
+      shoesIndex = 0
+    }
+    shoes.src = './images/shoes' + shoesIndex + '.png'
+  }
+}
+
+function changeLeft() {
+  if (bodyPartIndex === 0) {
+    if (headIndex > 0) {
+      headIndex--
+    } else if (headIndex === 0) {
+      headIndex = 5
+    }
+    head.src = './images/head' + headIndex + '.png'
+  }
+
+  if (bodyPartIndex === 1) {
+    if (bodyIndex > 0) {
+      bodyIndex--
+    } else if (bodyIndex === 0) {
+      bodyIndex = 5
+    }
+    body.src = './images/body' + bodyIndex + '.png'
+  }
+
+  if (bodyPartIndex === 2) {
+    if (shoesIndex > 0) {
+      shoesIndex--
+    } else if (shoesIndex === 0) {
+      shoesIndex = 5
+    }
+    shoes.src = './images/shoes' + shoesIndex + '.png'
+  }
 }
 
 // ARROW KEY REFERENCE
@@ -70,28 +123,6 @@ function changeHeadLeft() {
 // --- DOWN
 //  "key": "ArrowDown",
 //  "keyCode": 40
-
-// function changeBody() {
-//   body.src = './images/body' + indexNum + '.png'
-
-//   if (indexNum === 5) {
-//     indexNum = 0
-//   } else {
-//     indexNum++
-//   }
-// }
-
-// function changeShoes() {
-//   shoes.src = './images/shoes' + indexNum + '.png'
-
-//   if (indexNum === 5) {
-//     indexNum = 0
-//   } else {
-//     indexNum++
-//   }
-// }
-
-//
 
 // --- STRETCH IDEAS FOR LATER ---
 
